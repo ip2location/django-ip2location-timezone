@@ -22,7 +22,8 @@ class IP2locationTimezoneMiddleware(middleware_base_class):
             ip_address = request.META.get('REMOTE_ADDR')
         url = 'https://api.ip2location.com/v2/?ip=' + ip_address + '&key=' + api_key + '&package=WS11&format=json&addon=time_zone_info'
         response = requests.get(url)
-        rec = json.loads(response.content)
+        # rec = json.loads(response.content)
+        rec = response.json()
         # if ip is localhost(127.0.0.1), use default timezone
         if ip_address == '127.0.0.1':
             tz = timezone.get_default_timezone()
