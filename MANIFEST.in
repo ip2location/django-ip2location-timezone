@@ -1,0 +1,4 @@
+include AUTHORS
+include ChangeLog
+include LICENSE.TXT
+include readme.md
